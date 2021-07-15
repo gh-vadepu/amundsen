@@ -11,6 +11,8 @@ from flask import Flask  # noqa: F401
 
 from metadata_service.entity.badge import Badge
 
+from common.amundsen_common.models.user import get_user_details
+
 # PROXY configuration keys
 PROXY_HOST = 'PROXY_HOST'
 PROXY_PORT = 'PROXY_PORT'
@@ -68,7 +70,7 @@ class Config:
 
     SWAGGER_ENABLED = os.environ.get('SWAGGER_ENABLED', False)
 
-    USER_DETAIL_METHOD = "get_user_details"  # type: Optional[function]
+    USER_DETAIL_METHOD = get_user_details  # type: Optional[function]
 
     RESOURCE_REPORT_CLIENT = None  # type: Optional[function]
 
