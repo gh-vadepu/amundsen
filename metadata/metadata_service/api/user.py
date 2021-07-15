@@ -34,6 +34,14 @@ class UserDetailAPI(BaseAPI):
         self.client = get_proxy_client()
         super().__init__(UserSchema, 'user', self.client)
 
+    def get_user_details(user_id):
+      user_info = {
+        'email': 'email',
+        'user_id': 'email',
+      }
+      return user_info
+
+
     @swag_from('swagger_doc/user/detail_get.yml')
     def get(self, *, id: Optional[str] = None) -> Iterable[Union[Mapping, int, None]]:
         if app.config['USER_DETAIL_METHOD']:
