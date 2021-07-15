@@ -36,8 +36,8 @@ class UserDetailAPI(BaseAPI):
 
     def get_user_details(user_id):
       user_info = {
-        'email': 'email',
-        'user_id': 'email',
+        'email': user_id,
+        'user_id': user_id,
       }
       return user_info
 
