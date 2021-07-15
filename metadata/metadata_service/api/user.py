@@ -34,12 +34,16 @@ class UserDetailAPI(BaseAPI):
         self.client = get_proxy_client()
         super().__init__(UserSchema, 'user', self.client)
 
-    def get_user_details(user_id):
+    def get_user_details(data):
       user_info = {
-        'email': user_id,
-        'user_id': user_id,
+        'email': data['email'],
+        'user_id': data['user_id'],
+        'first_name': data['first_name'],
+        'last_name': data['last_name'],
+        'full_name': data['first_name']+" "+data['last_name'],
       }
       return user_info
+
 
 
     @swag_from('swagger_doc/user/detail_get.yml')
