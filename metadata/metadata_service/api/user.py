@@ -34,18 +34,6 @@ class UserDetailAPI(BaseAPI):
         self.client = get_proxy_client()
         super().__init__(UserSchema, 'user', self.client)
 
-    def get_user_details(data):
-      user_info = {
-        'email': data['email'],
-        'user_id': data['user_id'],
-        'first_name': data['first_name'],
-        'last_name': data['last_name'],
-        'full_name': data['first_name']+" "+data['last_name'],
-      }
-      return user_info
-
-
-
     @swag_from('swagger_doc/user/detail_get.yml')
     def get(self, *, id: Optional[str] = None) -> Iterable[Union[Mapping, int, None]]:
         if app.config['USER_DETAIL_METHOD']:
@@ -312,3 +300,4 @@ class UserReadsAPI(Resource):
         except Exception:
             LOGGER.exception('UserReadsAPI GET Failed')
             return {'message': 'Internal server error!'}, HTTPStatus.INTERNAL_SERVER_ERROR
+

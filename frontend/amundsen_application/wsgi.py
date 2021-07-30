@@ -6,7 +6,7 @@ from amundsen_application import create_app
 
 
 if not os.getenv('FRONTEND_SVC_CONFIG_MODULE_CLASS'):
-    os.environ['FRONTEND_SVC_CONFIG_MODULE_CLASS'] = 'amundsen_application.config.TestConfig'
+    os.environ['FRONTEND_SVC_CONFIG_MODULE_CLASS'] = 'amundsen_application.oidc_config.OidcConfig'
 
 application = create_app()
 

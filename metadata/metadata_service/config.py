@@ -11,7 +11,12 @@ from flask import Flask  # noqa: F401
 
 from metadata_service.entity.badge import Badge
 
-from common.amundsen_common.models.user import get_user_details
+def get_user_details(user_id):
+      user_info = {
+        'email': user_id,
+        'user_id': user_id,
+      }
+      return user_info
 
 # PROXY configuration keys
 PROXY_HOST = 'PROXY_HOST'
@@ -70,9 +75,9 @@ class Config:
 
     SWAGGER_ENABLED = os.environ.get('SWAGGER_ENABLED', False)
 
-    USER_DETAIL_METHOD = get_user_details  # type: Optional[function]
 
     RESOURCE_REPORT_CLIENT = None  # type: Optional[function]
+    USER_DETAIL_METHOD = get_user_details
 
     # On User detail method, these keys will be added into amundsen_common.models.user.User.other_key_values
     USER_OTHER_KEYS = {'mode_user_id'}  # type: Set[str]
