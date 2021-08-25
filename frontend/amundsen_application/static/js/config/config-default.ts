@@ -31,7 +31,7 @@ const configDefault: AppConfig = {
   },
   userIdLabel: 'email address',
   issueTracking: {
-    enabled: false,
+    enabled: true,
   },
   logoPath: null,
   logoTitle: 'AMUNDSEN',
